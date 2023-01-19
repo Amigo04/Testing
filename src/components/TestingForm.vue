@@ -1,94 +1,88 @@
 <template>
-    <div class="div">
+    <div class="div1">
     <RouterLink to="/aboutview">
-        <div class="btn from-top">GET STARTED</div>    
+
+		<button class="glow-on-hover" type="button">начать</button>
+
     </RouterLink>
     </div>
   
 </template>
 
-<style scoped lang="css">
+<style scoped  lang="css">
+ 
 
-.btn {		
-	position: relative;	
-	padding: 1.4rem 4.2rem;
-	padding-right: 3.1rem;
-	font-size: 1.4rem;
-	color: var(--inv);
-	letter-spacing: 1.1rem;
-	text-transform: uppercase;
-	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
-	cursor: pointer;
-	user-select: none;
+
+.div1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: indigo	;
 }
 
-.btn:before, .btn:after {
-	content: '';
-	position: absolute;	
-	transition: inherit;
-	z-index: -1;
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
 }
 
-.btn:hover {
-	color: var(--def);
-	transition-delay: .5s;
+.glow-on-hover:before {
+    content: '';
+    background: yellow;
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
 }
 
-.btn:hover:before {
-	transition-delay: 0s;
+.glow-on-hover:active {
+    color: #000
 }
 
-.btn:hover:after {
-	background: var(--inv);
-	transition-delay: .35s;
+.glow-on-hover:active:after {
+    background: transparent;
 }
 
-
-.from-top:before, 
-.from-top:after {
-	left: 0;
-	height: 0;
-	width: 100%;
+.glow-on-hover:hover:before {
+    opacity: 1;
 }
 
-.from-top:before {
-	bottom: 0;	
-	border: 1px solid var(--inv);
-	border-top: 0;
-	border-bottom: 0;
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
 }
 
-.from-top:after {
-	top: 0;
-	height: 0;
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
-
-.from-top:hover:before,
-.from-top:hover:after {
-	height: 100%;
-}
-
-
-
-*, *:before, *:after {
-	box-sizing: border-box;
-}
-
-.div {
-	--def: #96B7C4; 	
-	--inv: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 100vh;
-	width: 100%;
-	background-image: linear-gradient(-25deg, #616161 0%, #96B7C4 100%);
-}
-
-
-
-
-
 
 </style>
