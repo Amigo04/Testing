@@ -1,0 +1,94 @@
+<template>
+    <div class="div">
+    <RouterLink to="/aboutview">
+        <div class="btn from-top">GET STARTED</div>    
+    </RouterLink>
+    </div>
+  
+</template>
+
+<style scoped lang="css">
+
+.btn {		
+	position: relative;	
+	padding: 1.4rem 4.2rem;
+	padding-right: 3.1rem;
+	font-size: 1.4rem;
+	color: var(--inv);
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
+	cursor: pointer;
+	user-select: none;
+}
+
+.btn:before, .btn:after {
+	content: '';
+	position: absolute;	
+	transition: inherit;
+	z-index: -1;
+}
+
+.btn:hover {
+	color: var(--def);
+	transition-delay: .5s;
+}
+
+.btn:hover:before {
+	transition-delay: 0s;
+}
+
+.btn:hover:after {
+	background: var(--inv);
+	transition-delay: .35s;
+}
+
+
+.from-top:before, 
+.from-top:after {
+	left: 0;
+	height: 0;
+	width: 100%;
+}
+
+.from-top:before {
+	bottom: 0;	
+	border: 1px solid var(--inv);
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.from-top:after {
+	top: 0;
+	height: 0;
+}
+
+.from-top:hover:before,
+.from-top:hover:after {
+	height: 100%;
+}
+
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.div {
+	--def: #96B7C4; 	
+	--inv: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(-25deg, #616161 0%, #96B7C4 100%);
+}
+
+
+
+
+
+
+</style>
